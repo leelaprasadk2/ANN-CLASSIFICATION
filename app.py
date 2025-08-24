@@ -7,7 +7,8 @@ import numpy as np
 
 #load the model
 from keras.src.legacy.saving import legacy_h5_format
-model = legacy_h5_format.load_model_from_hdf5("model.h5")
+model = tf.keras.models.load_model("model.h5", compile=False)
+
 
 
  ##load the encoder ans scaler
@@ -73,4 +74,5 @@ if churn_probability > 0.5:
 else:
     st.write(f"The customer is unlikely to churn with a probability of {churn_probability:.8f}")
     st.write(f"📊 Rounded probability: {churn_probability:.2f}")
+
 
